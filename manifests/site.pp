@@ -15,6 +15,14 @@ node "logstash" {
 				enabled => 1;
 
 
+	
+	'inuits-gems':
+			baseurl => 'http://repo.inuits.be/gems/',
+				descr => 'Inuits Gems Repo',	
+				gpgcheck => 0,
+				enabled => 1;
+
+
     "jpackage-generic":
                 baseurl => "http://mirrors.dotsrc.org/jpackage/5.0/generic/free/",
              descr      => "JPackage-generic",
@@ -27,6 +35,20 @@ node "logstash" {
                 gpgcheck => 0,  
                 enabled         => 1;
           
+
+		'epel':
+			baseurl => $operatingsystemrelease ? {
+				'6.0' => "http://mirror.eurid.eu/epel/6/$hardwaremodel/",
+					'*' => "http://mirror.eurid.eu/epel/5/$hardwaremodel/",
+			},
+				descr => $operatingsystemrelease ? {
+					'6.0' => 'Extra Packages for Enterprise Linux 6.x
+						',
+					'*' => 'Extra Packages for Enterprise Linux 5.x',
+				},
+				gpgcheck => 0,
+				enabled => 1;
+
 
 
 
@@ -42,7 +64,9 @@ node "logstash" {
 
 
 
-
+	include elasticsearch 
+	include rabbitmq
+	include grok 
 	include logstash::server
 
 
