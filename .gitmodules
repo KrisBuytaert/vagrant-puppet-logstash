@@ -1,0 +1,10 @@
+[submodule "sources/elastic"]
+	path = sources/elastic
+	url = git://github.com/KrisBuytaert/elasticsearch-rpms.git
+
+[submodule "modules/rabbitmq"]
+	path = modules/rabbitmq
+	url = https://github.com/rdegges/puppet-rabbitmq.git
+[submodule "sources/grok"]
+	path = sources/grok
+	url = https://github.com/jordansissel/grok.git
