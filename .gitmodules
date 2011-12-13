@@ -1,0 +1,3 @@
+[submodule "sources/elastic"]
+	path = sources/elastic
+	url = https://github.com/tavisto/elasticsearch-rpms

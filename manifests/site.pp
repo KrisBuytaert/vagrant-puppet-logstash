@@ -3,6 +3,17 @@ node "logstash" {
 	yumrepo {
 	
 
+		'inuits':
+			baseurl => $operatingsystemrelease ? {
+				'6.0' => 'http://repo.inuits.be/centos/6/os',
+					'*' => 'http://repo.inuits.be/centos/5/os', },
+				descr => $operatingsystemrelease ? {
+					'6.0' => 'inuits internal CentOS 6.x repo',
+					'*' => 'inuits internal CentOS 5.x repo' ,
+				},
+				gpgcheck => 0,
+				enabled => 1;
+
 
     "jpackage-generic":
                 baseurl => "http://mirrors.dotsrc.org/jpackage/5.0/generic/free/",
@@ -18,12 +29,21 @@ node "logstash" {
           
 
 
+
 	}
 
 
 	notify { " yeah ": } 
 
-	include logstash::simple
+
+     	package { 'java-1.6.0-openjdk':
+                                       ensure => 'installed';
+                }
+
+
+
+
+	include logstash::server
 
 
 }
