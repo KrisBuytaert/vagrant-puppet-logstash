@@ -1,18 +1,7 @@
 Puppet module to test logstash 
 
-Currently only in a simple setup 
 
-Tested on Centos5 
+Tested on Centos6 
 
-
-http://logstash.net/docs/1.0.14/getting-started-centralized
-
-
-https://github.com/visibiz/puppet-elasticsearch/blob/master/manifests/init.pp
-http://www.visibiz.com/blog/hunter/elasticsearch/elasticsearch-puppet-module
-
-https://github.com/tavisto/elasticsearch-rpms
-
-
-https://github.com/rdegges/puppet-rabbitmq/tree/master/manifests
-https://github.com/vurbia/puppet-rabbitmq/blob/master/manifests/install/redhat.pp
+TODO: 
+    Create good rc scripts for the different logstash components 
