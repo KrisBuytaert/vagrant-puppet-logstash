@@ -6,4 +6,4 @@ Tested on Centos6
 
 TODO:
 
-    Repackage Logtash :) 
+- Fix ordering :)   (nothing  a couple of vagrant provisions don't fix..) 

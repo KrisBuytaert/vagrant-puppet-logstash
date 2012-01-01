@@ -61,6 +61,9 @@ node "logstash" {
     ensure => 'installed';
   }
 
+  package { 'tanukiwrapper':
+    ensure => '3.5.7-1.jpp6',
+   }
 
 
   include elasticsearch 
