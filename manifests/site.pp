@@ -73,5 +73,6 @@ node "logstash" {
   # not working on shipper functionality yet 
 
   include logstash::shipper
+  include logstash::web
 }
 
