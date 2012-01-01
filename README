@@ -3,5 +3,7 @@ Puppet module to test logstash
 
 Tested on Centos6 
 
-TODO: 
-    Create good rc scripts for the different logstash components 
+
+TODO:
+
+    Repackage Logtash :) 
