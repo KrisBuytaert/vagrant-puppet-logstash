@@ -1,3 +1,12 @@
 [submodule "modules/rabbitmq"]
 	path = modules/rabbitmq
 	url = git://github.com/KrisBuytaert/puppet-rabbitmq.git
+[submodule "modules/logstash"]
+	path = modules/logstash
+	url = git@github.com:KrisBuytaert/puppet-logstash.git
+[submodule "modules/elasticsearch"]
+	path = modules/elasticsearch
+	url = git@github.com:KrisBuytaert/puppet-elasticsearch.git
+[submodule "modules/grok"]
+	path = modules/grok
+	url = git@github.com:KrisBuytaert/puppet-grok.git
