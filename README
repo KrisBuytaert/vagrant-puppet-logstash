@@ -7,3 +7,9 @@ Tested on Centos6
 TODO:
 
 - Fix ordering :)   (nothing  a couple of vagrant provisions don't fix..) 
+- Add apache proxy infront 
+- Parametrize a bunch of values / classes .. this stuff only works with all services on 1 host right now.
+
+
+
+

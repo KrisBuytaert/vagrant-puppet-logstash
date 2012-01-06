@@ -69,12 +69,8 @@ node "logstash" {
   include elasticsearch 
   include rabbitmq
   include grok 
-  # working on server functionality 
   include logstash::common 
   include logstash::server
-
-  # not working on shipper functionality yet 
-
   include logstash::shipper
   include logstash::web
 }
