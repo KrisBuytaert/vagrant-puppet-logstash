@@ -73,5 +73,10 @@ node "logstash" {
   include logstash::server
   include logstash::shipper
   include logstash::web
-}
 
+
+  rsyslog::server {
+    "default":
+      servers => '127.0.0.1',
+  }
+}
