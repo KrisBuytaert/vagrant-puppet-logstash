@@ -54,6 +54,10 @@ node "logstash" {
 
   }
 
+  service {"iptables":
+    enable => false,
+    ensure => stopped;
+  }
 
 
 
