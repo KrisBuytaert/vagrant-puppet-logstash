@@ -54,6 +54,10 @@ node "logstash" {
 
   }
 
+  service {"iptables":
+    enable => false,
+    ensure => stopped;
+  }
 
 
 
@@ -67,11 +71,21 @@ node "logstash" {
 
 
   include elasticsearch 
+
+  package {'elasticsearch-plugin-head':
+    ensure => 'installed',
+  }
+
   include rabbitmq
   include grok 
   include logstash::common 
   include logstash::server
   include logstash::shipper
   include logstash::web
-}
 
+
+  rsyslog::server {
+    "default":
+      servers => '127.0.0.1',
+  }
+}
