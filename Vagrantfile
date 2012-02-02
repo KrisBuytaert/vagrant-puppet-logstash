@@ -14,7 +14,7 @@ Vagrant::Config.run do |config|
 
   # Assign this VM to a host only network IP, allowing you to access it
   # via the IP.
-  #config.vm.network "10.42.42.51"
+  config.vm.network "10.42.42.51"
   config.ssh.max_tries = 100
 
   config.vm.host_name = "logstash"

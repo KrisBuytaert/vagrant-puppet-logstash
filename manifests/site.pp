@@ -71,6 +71,11 @@ node "logstash" {
 
 
   include elasticsearch 
+
+  package {'elasticsearch-plugin-head':
+    ensure => 'installed',
+  }
+
   include rabbitmq
   include grok 
   include logstash::common 
