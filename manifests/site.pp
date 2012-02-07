@@ -70,8 +70,10 @@ node "logstash" {
    }
 
 
-  include elasticsearch 
 
+  class {'elasticsearch':
+    version => '0.18.7-1.el6',
+  }
   package {'elasticsearch-plugin-head':
     ensure => 'installed',
   }
@@ -79,8 +81,13 @@ node "logstash" {
   include rabbitmq
   include grok 
   include logstash::common 
-  include logstash::server
-  include logstash::shipper
+  class {'logstash::shipper':
+    verbose => 'yes',
+  }
+
+  class {'logstash::server':
+    verbose => 'yes',
+  }
   include logstash::web
 
 
