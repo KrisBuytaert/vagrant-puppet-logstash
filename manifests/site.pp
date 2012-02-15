@@ -90,6 +90,8 @@ node "logstash" {
   }
   include logstash::web
 
+  service {"httpd":  ensure => running; }
+  include kibana
 
   rsyslog::server {
     "default":
