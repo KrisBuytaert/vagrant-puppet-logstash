@@ -1,2 +1,6 @@
 sources
 .vagrant
+config.php
+etsy.conf
+indexer.conf
+
