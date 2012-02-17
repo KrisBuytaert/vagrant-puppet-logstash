@@ -1,11 +1,4 @@
-Document elastisearch and logstash fighting for port 9300
-
-Document elastisearch version mismatches on  version 1.0.7 and on 1.1.0 
-
-Checkout shipper amqp  configuration
-
-Get web to work again 
-
-Add Kibana + Package to setup 
-
-Parametrize indexer.conf 
+- Checkout shipper amqp  configuration
+- Parametrize indexer.conf 
+- Add support for conf.d  style config 
+- Document individual modules
