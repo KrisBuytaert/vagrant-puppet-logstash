@@ -1,0 +1,128 @@
+#rsyslog v3 config file
+
+# if you experience problems, check
+# http://www.rsyslog.com/troubleshoot for assistance
+
+#### MODULES ####
+
+$ModLoad imuxsock.so    # provides support for local system logging (e.g. via logger command)
+$ModLoad imklog.so      # provides kernel logging support (previously done by rklogd)
+#$ModLoad immark.so     # provides --MARK-- message capability
+
+# Provides UDP syslog reception
+$ModLoad imudp.so
+$UDPServerRun 514
+
+# Provides TCP syslog reception
+$ModLoad imtcp.so
+$InputTCPServerRun 514
+
+
+#### GLOBAL DIRECTIVES ####
+
+# Use default timestamp format
+$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
+
+# File syncing capability is disabled by default. This feature is usually not required,
+# not useful and an extreme performance hit
+#$ActionFileEnableSync on
+
+# make sure nothing interferes with the FileCreateMode definitions
+$umask 0000
+
+
+#### RULES ####
+#
+# Log all sems message to sems logfile
+:msg, regex, "<agent_name>.*<topic>EVENT</topic>"    @@SVC-CONMS:5333
+:msg, regex, "<agent_name>.*<topic>FATAL</topic>"    @@SVC-CONMS:5333
+:msg, regex, "<agent_name>.*<topic>CRITICAL</topic>" @@SVC-CONMS:5333
+:msg, regex, "<agent_name>.*<topic>MAJOR</topic>"    @@SVC-CONMS:5333
+:msg, regex, "<agent_name>.*<topic>CLEARED</topic>"  @@SVC-CONMS:5333
+
+# Don't log  any DMA snmp connections 
+
+:msg, contains, "Connection from UDP:" ~
+
+<%- unless rule.to_s.empty? then -%>
+<%= rule %>
+<%- end -%>
+# Log all kernel messages to the console.
+# Logging much else clutters up the screen.
+#kern.*                                                 /dev/console
+
+# Log anything (except mail) of level info or higher.
+# Don't log private authentication messages!
+*.info;\
+<%- unless local2.to_s.empty? then -%>
+local2.none;\
+<%- end -%>
+<%- unless local3.to_s.empty? then -%>
+local3.none;\
+<%- end -%>
+<%- unless local4.to_s.empty? then -%>
+local4.none;\
+<%- end -%>
+<%- unless local5.to_s.empty? then -%>
+local5.none;\
+<%- end -%>
+<%- unless local6.to_s.empty? then -%>
+local6.none;\
+<%- end -%>
+<%- unless local7.to_s.empty? then -%>
+local7.none;\
+<%- end -%>
+mail.none;authpriv.none;cron.none;                /var/log/messages
+
+# The authpriv file has restricted access.
+authpriv.*                                              /var/log/secure
+
+# Log all the mail messages in one place.
+mail.*                                                  -/var/log/maillog
+
+# Log cron stuff
+cron.*                                                  /var/log/cron
+
+# Everybody gets emergency messages
+*.emerg                                                 *
+
+# Save news errors of level crit and higher in a special file.
+uucp,news.crit                                          /var/log/spooler
+
+<%- unless local2.to_s.empty? then -%>
+local2.*						<%= local2 %>
+<%- end -%>
+<%- unless local3.to_s.empty? then -%>
+local3.*						<%= local3 %>
+<%- end -%>
+<%- unless local4.to_s.empty? then -%>
+local4.*						<%= local4 %>
+<%- end -%>
+<%- unless local5.to_s.empty? then -%>
+local5.*						<%= local5 %>
+<%- end -%>
+<%- unless local6.to_s.empty? then -%>
+local6.*						<%= local5 %>
+<%- end -%>
+<%- unless local7.to_s.empty? then -%>
+local7.*						<%= local5 %>
+<%- end -%>
+
+<%- unless servers.empty? then -%>
+<%- if servers.type.to_s.eql? "String" then
+     array = [];
+     array.push(servers);
+     serverlist = array;
+   elsif servers.type.to_s.eql? "Array" then
+     serverlist = servers;
+ end -%>
+
+# Logging to remote servers
+# From rsyslog-3.21.5 the hostname entry can be replaced by $myhostname
+<% serverlist.slice(0..0).each do |syslog_server| -%>
+if $hostname == '<%= hostname %>' then                  @<%= syslog_server %>
+<% end -%>
+<% serverlist.slice(1..-1).each do |syslog_server| -%>
+&                                                       @<%= syslog_server %>
+<% end -%>
+<% end -%>
