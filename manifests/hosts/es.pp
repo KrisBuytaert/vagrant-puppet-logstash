@@ -72,9 +72,11 @@ node "elasticsearch" {
 
 
   class {'elasticsearch::params':
-    version => '0.18.7-1.el6',
+    version        => '0.18.7-1.el6',
+    es_clustername => 'elasticsearch',
   }
-  include elasticsearch
+  class {'elasticsearch': }
+
   package {'elasticsearch-plugin-head':
     ensure => 'installed',
   }
