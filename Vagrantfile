@@ -32,7 +32,7 @@ Vagrant::Config.run do |config|
        logstash2_config.vm.box = "Centos6"
        logstash2_config.ssh.max_tries = 100
        logstash2_config.vm.host_name = "logstash2"
-       logstash2_config.vm.network  :hostonly, "10.42.44.3"
+       logstash2_config.vm.network  :hostonly, "10.42.44.4"
        logstash2_config.vm.provision :puppet do |logstash2_puppet|
             logstash2_puppet.pp_path = "/tmp/vagrant-puppet"
             logstash2_puppet.manifests_path = "manifests"
