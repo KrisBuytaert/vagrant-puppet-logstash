@@ -71,9 +71,10 @@ node "logstash" {
 
 
 
-  class {'elasticsearch':
+  class {'elasticsearch::params':
     version => '0.18.7-1.el6',
   }
+  include elasticsearch
   package {'elasticsearch-plugin-head':
     ensure => 'installed',
   }
