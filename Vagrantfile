@@ -20,7 +20,7 @@ Vagrant::Config.run do |config|
        elasticsearch_config.vm.box = "Centos6"
        elasticsearch_config.ssh.max_tries = 100
        elasticsearch_config.vm.host_name = "elasticsearch"
-       elasticsearch_config.vm.network  :hostonly, "10.42.44.3"
+       elasticsearch_config.vm.network  :hostonly, "10.42.44.44"
        elasticsearch_config.vm.provision :puppet do |elasticsearch_puppet|
        		elasticsearch_puppet.pp_path = "/tmp/vagrant-puppet"
        		elasticsearch_puppet.manifests_path = "manifests"
