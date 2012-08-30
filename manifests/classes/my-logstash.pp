@@ -9,10 +9,15 @@ package { 'java-1.6.0-openjdk':
 package {'httpd':
   ensure => 'installed';
 }
+
 package { 'tanukiwrapper':
   ensure => '3.5.7-1.jpp6',
 }
 
+
+package {'php':
+  ensure => 'installed';
+}
 
 
 class {'elasticsearch::params':
