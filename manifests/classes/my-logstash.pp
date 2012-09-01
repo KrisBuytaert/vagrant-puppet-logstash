@@ -2,13 +2,19 @@ class my-logstash{
 # This class installs logstash and all its dependencies 
 
 
+
+include ::apache
+
+apache::vhost{'kibana':
+  serveraliases => 'logstash';
+}
+
+
+
 package { 'java-1.6.0-openjdk':
   ensure => 'installed';
 }
 
-package {'httpd':
-  ensure => 'installed';
-}
 
 package { 'tanukiwrapper':
   ensure => '3.5.7-1.jpp6',

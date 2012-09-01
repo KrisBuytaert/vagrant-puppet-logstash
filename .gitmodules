@@ -10,3 +10,12 @@
 [submodule "modules/grok"]
 	path = modules/grok
 	url = git@github.com:KrisBuytaert/puppet-grok.git
+[submodule "modules/apache"]
+	path = modules/apache
+	url = git://github.com/Inuits/puppet-apache.git
+[submodule "modules/concat"]
+	path = modules/concat
+	url = git://github.com/ripienaar/puppet-concat.git
+[submodule "modules/kibana"]
+	path = modules/kibana
+	url = git@github.com:KrisBuytaert/puppet-kibana.git
