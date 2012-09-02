@@ -9,6 +9,8 @@ apache::vhost{'kibana':
   serveraliases => 'logstash';
 }
 
+rsyslog::server {"master": }
+
 
 
 package { 'java-1.6.0-openjdk':
