@@ -19,3 +19,6 @@
 [submodule "modules/kibana"]
 	path = modules/kibana
 	url = git@github.com:KrisBuytaert/puppet-kibana.git
+[submodule "modules/rsyslog"]
+	path = modules/rsyslog
+	url = git@github.com:KrisBuytaert/puppet-rsyslog.git
