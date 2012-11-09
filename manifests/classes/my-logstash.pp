@@ -9,8 +9,9 @@ apache::vhost{'kibana':
   serveraliases => 'logstash';
 }
 
-rsyslog::server {"master": }
 
+class {'rsyslog':
+}
 
 
 package { 'java-1.6.0-openjdk':
@@ -46,9 +47,9 @@ class {'logstash::shipper':
 class {'logstash::server':
   verbose => 'yes',
 }
-include logstash::web
 
-service {"httpd":  ensure => running; }
+# Not running web when we are running kibana
+#include logstash::web
 include kibana
 
 
