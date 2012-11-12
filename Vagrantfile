@@ -9,6 +9,7 @@ Vagrant::Config.run do |config|
        default_config.ssh.max_tries = 100
        default_config.vm.host_name = "logstash"
        #default_config.vm.forward_port  80, 8080
+       default_config.vm.customize ["modifyvm", :id, "--memory", 2048]
        default_config.vm.provision :puppet do |default_puppet|
        		default_puppet.pp_path = "/tmp/vagrant-puppet"
        		default_puppet.manifests_path = "manifests"
