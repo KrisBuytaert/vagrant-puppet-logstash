@@ -30,7 +30,7 @@ package {'php':
 
 
 class {'elasticsearch::params':
-  version => '0.18.7-1.el6',
+  version => '0.19.10-1.el6',
 }
 include elasticsearch
 package {'elasticsearch-plugin-head':
