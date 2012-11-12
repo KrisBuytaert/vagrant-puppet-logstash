@@ -1,3 +1,8 @@
+
+- Figure out which parts of the open pull you could pull in .
+
+
+
 - Checkout shipper amqp  configuration
 - Parametrize indexer.conf 
 - Add support for conf.d  style config 
