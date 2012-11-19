@@ -22,3 +22,6 @@
 [submodule "modules/rsyslog"]
 	path = modules/rsyslog
 	url = git@github.com:KrisBuytaert/puppet-rsyslog.git
+[submodule "modules/passenger"]
+	path = modules/passenger
+	url = git@github.com:KrisBuytaert/puppet-passenger.git
