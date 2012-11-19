@@ -1,10 +1,9 @@
-node /logstash/ {
+node /ribana/ {
 
   service {"iptables":
     enable => false,
     ensure => stopped;
   }
   include my-repos
-  include my-logstash
   include my-ribana
 }

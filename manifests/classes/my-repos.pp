@@ -17,4 +17,11 @@ class my-repos{
     descr      => 'Epel Repo at Inuits',
     gpgcheck   => '0',
   }
+  yumrepo {'stealthmonkeys':
+    baseurl          => 'https://pulp.inuits.eu/pulp/repos/rhel/6/x86_64/',
+    descr        => 'Stealthmonkeys at Inuits',
+    gpgcheck => '0',
+  }
+
+
 }

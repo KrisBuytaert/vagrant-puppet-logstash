@@ -29,16 +29,16 @@ Vagrant::Config.run do |config|
 #       		elasticsearch_puppet.manifest_file = "site.pp"
 #       end
 #  end
-#  config.vm.define :logstash2 do |logstash2_config|
-#       logstash2_config.vm.box = "Centos6"
-#       logstash2_config.ssh.max_tries = 100
-#       logstash2_config.vm.host_name = "logstash2"
-#       logstash2_config.vm.network  :hostonly, "10.42.44.4"
-#       logstash2_config.vm.provision :puppet do |logstash2_puppet|
-#            logstash2_puppet.pp_path = "/tmp/vagrant-puppet"
-#            logstash2_puppet.manifests_path = "manifests"
-#            logstash2_puppet.module_path = "modules"
-#            logstash2_puppet.manifest_file = "site.pp"
-#       end
-#  end
+  config.vm.define :ribana do |ribana_config|
+       ribana_config.vm.box = "Centos6"
+       ribana_config.ssh.max_tries = 100
+       ribana_config.vm.host_name = "ribana"
+       ribana_config.vm.network  :hostonly, "10.42.42.4"
+       ribana_config.vm.provision :puppet do |ribana_puppet|
+            ribana_puppet.pp_path = "/tmp/vagrant-puppet"
+            ribana_puppet.manifests_path = "manifests"
+            ribana_puppet.module_path = "modules"
+            ribana_puppet.manifest_file = "site.pp"
+       end
+  end
 end
