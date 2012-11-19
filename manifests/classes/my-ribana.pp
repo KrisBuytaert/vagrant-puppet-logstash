@@ -1,7 +1,8 @@
 class my-ribana{
 
 
-  include passenger
+  class {'passenger': }
+  class {'kibana-ruby': }
   apache::vhost{'ribana':
     docroot      => '/var/vhosts/ribana/htdocs/static/',
     alias        => 'ribana',
