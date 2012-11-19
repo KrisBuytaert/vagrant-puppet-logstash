@@ -1,3 +1,0 @@
-Passenger specific stuff pulled out of the apache2 tree 
-from the from the original https://github.com/ohadlevy/puppet-foreman Removed all the non passenger stuff so it can be used in a setup that alreadh has an apache module in place.
-
