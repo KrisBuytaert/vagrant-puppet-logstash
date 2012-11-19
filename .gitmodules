@@ -25,3 +25,6 @@
 [submodule "modules/passenger"]
 	path = modules/passenger
 	url = git@github.com:KrisBuytaert/puppet-passenger.git
+[submodule "modules/kibana-ruby"]
+	path = modules/kibana-ruby
+	url = git@github.com:KrisBuytaert/puppet-kibana-ruby.git
