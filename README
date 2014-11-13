@@ -1,4 +1,10 @@
-Puppet module to test logstash 
+
+This tree has been obsoleted by the upstream ElasticSearch and Logstash Modules.
+
+An example on how to use them (and a working vagrant Box) can be found on 
+
+https://github.com/bartjanssens92/vagrant-puppet-logstash
+
 
 
 Tested on Centos6 
